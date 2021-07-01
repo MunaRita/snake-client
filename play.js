@@ -1,2 +1,3 @@
-const Connection = require('./client');
+const connect = require('./client');
+const setupInput = require('./inputs');
 

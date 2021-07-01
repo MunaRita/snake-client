@@ -6,23 +6,30 @@ const connect = function() {
     port: 50542
   });
 
-  // interpret incoming data as text
   conn.setEncoding("utf8");
 
-  // receive data from the server
   conn.on('data', (data) => {
     console.log('Server says: ', data);
   });
+
   conn.on('connect', () => {
     console.log('Successfully connected to game server');
-  
-    conn.write('Name: CAC');
-    
   });
 
+  conn.on('connect',() => {
+    conn.write('Name: CAC');
+
+    // conn.write("Move: left");
+    // setInterval(() => {
+    //   conn.write("Move: left");
+    //  }, 100);
+
+        
+  });
 
   return conn;
 };
+ 
 
 console.log("Connecting  ....");
 connect();
