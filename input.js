@@ -1,10 +1,8 @@
+const { upKey, leftKey, downKey, rightKey,} = require("./constants");
 // setup interface to handle user input from stdin
 
 let connection; //   => Stores the active TCP connection object.
-const upKey = 'w';
-const leftKey = 'a';
-const downKey = 's';
-const rightKey = 'd';
+
 
 const setupInput = (conn) => {
   connection = conn;
@@ -30,9 +28,17 @@ const setupInput = (conn) => {
 
     } else if (key === rightKey) {
       conn.write("Move: right");
-    }
+
+    } //else if (key === heyKey) {
+
+    //   conn.write('SAY: HEY');
+
+    // } else if (key === zzzKey) {
+    //   conn.write('SAY: ZZZ');
+    // }
 
   };
+
   stdin.on("data", handleUserInput);
   return stdin;
     
